@@ -1,22 +1,23 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.form--simple {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
-.App-link {
-  color: #09d3ac;
+.form--simple .field {
+  width: 49%;
+}
+
+.form--different-row-width {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.form--different-row-width .field:nth-child(1) {
+  width: 40%;
+}
+
+.form--different-row-width .field:nth-child(2) {
+  width: 59%;
 }
