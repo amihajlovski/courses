@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Form, Dropdown, Input } from "semantic-ui-react";
 import { generateDropdownOptions } from "../helpers";
 
-export const CustomForm = ({ settings }) => {
+export const CustomForm = ({ settings, passState }) => {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
@@ -29,7 +29,13 @@ export const CustomForm = ({ settings }) => {
               placeholder="Name *"
               value={primaryDropdown}
               options={generateDropdownOptions(settings.dropdownOptions)}
-              onChange={(e, { value }) => setPrimary(value)}
+              onChange={(e, { value }) => {
+                setPrimary(value);
+                passState({
+                  course: value,
+                  courseDate: secondaryDropdown
+                });
+              }}
             />
           </Form.Field>
           <Form.Field>
@@ -45,7 +51,13 @@ export const CustomForm = ({ settings }) => {
                       .dates
                   : []
               )}
-              onChange={(e, { value }) => setSecondary(value)}
+              onChange={(e, { value }) => {
+                setSecondary(value);
+                passState({
+                  course: primaryDropdown,
+                  courseDate: value
+                });
+              }}
             />
           </Form.Field>
         </div>

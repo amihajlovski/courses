@@ -11,6 +11,8 @@ import "./App.css";
 
 function App() {
   const [courses, setCourses] = useState([]);
+  const [selectedCourse, setSelectedCourse] = useState(null);
+
 
   useEffect(() => {
     async function fetchData() {
@@ -23,12 +25,12 @@ function App() {
 
   return (
     <>
-      <Course data={courses} />
+      <Course passState={state => setSelectedCourse(state)} data={courses} />
       <Company />
       <Participants />
       <Block>
         <Center>
-          <Button fluid color="brown">
+          <Button fluid color="brown" onClick={() => console.log(selectedCourse)}>
             Submit
           </Button>
         </Center>

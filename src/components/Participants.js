@@ -9,7 +9,7 @@ export const Participants = () => {
   return (
     <Block background="#F7F5F3">
       {participants.map((item, index) => (
-        <>
+        <div key={index}>
           <CustomForm
             settings={{
               title: "Participants",
@@ -18,7 +18,7 @@ export const Participants = () => {
               hideTitle: item.index > 0
             }}
           />
-        </>
+        </div>
       ))}
       <Button
         color="brown"
